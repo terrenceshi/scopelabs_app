@@ -5,6 +5,10 @@
     # any of the below
 
 # landing.js (our preselected 4 rows)
+    # beginning: just get all the shit from terrence_shi
+        # last 4 are sciencee
+        # second to last 4 are history, etc
+
     # row.js (takes in 4+ video ids)
     # thumbnail.js (performs a get function on video url and turns that into an image, maybe has to do another get, w/e)
         # maybe has independent loading? easier to handle for take home...
