@@ -1,6 +1,8 @@
 # Video App
 
 # app.js (essentially just banner and logo and search, with shit at the bottom)
+    # banner and logo and search
+    # any of the below
 
 # landing.js (our preselected 4 rows)
     # row.js (takes in 4+ video ids)

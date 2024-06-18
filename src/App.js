@@ -1,35 +1,45 @@
 import {
   Routes,
   Route,
-  Link,
-  useParams
+  Link
 } from "react-router-dom";
 
+import { 
+  styled, 
+  Box 
+} from '@mui/material';
 
+import logo from "./assets/FULL_LOGO_COLOR.png"
+
+import Video from "./pages/Video.js";
+import Landing from "./pages/Landing.js";
+
+const MuiImg = styled("img")({});
 
 function App() {
   return (
     <div className="App">
-      <h2>Accounts</h2>
-
-      <ul>
-        <li>
-          <Link to="/netflix">Netflix</Link>
-        </li>
-        <li>
-          <Link to="/zillow-group">Zillow Group</Link>
-        </li>
-        <li>
-          <Link to="/yahoo">Yahoo</Link>
-        </li>
-        <li>
-          <Link to="/modus-create">Modus Create</Link>
-        </li>
-      </ul>
+      <Box sx = {{
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 2,
+        alignItems: 'flex-start'
+      }}>
+        <Link to="/">
+          <MuiImg 
+                src={logo} 
+                alt = {'Learnwell'} 
+                sx = {{
+                }}
+                onLoad={() => {
+                }}
+            />
+          </Link>
+      </Box>
 
       <Routes>
-        <Route path="/" element={<div>sup nigga</div>} />
-        <Route path="/:id" element={<div>sup nigga</div>} />
+        <Route path="/" element={<Landing/>} />
+        <Route path="/videos/:id" element={<Video/>} />
       </Routes>
     </div>
   );
