@@ -16,27 +16,35 @@ const Thumbnail = ({ video }) => {
     const width = 300;
 
     return (
+        <Link to = {'/videos/'+video.id} style = {{textDecoration: "none"}}>
         <Box sx = {{
             display: 'flex',
             flexDirection: 'column',
             gap: 1
         }}>
-            <Link to = {'/videos/'+video.id}>
+            
                 <MuiImg 
                     src={url} 
-                    alt = {'Learnwell'} 
+                    alt = {video.title} 
                     sx = {{
-                        width: {width}
+                        width: {width},
+                        "&:hover": {
+                            filter: "brightness(50%)",
+                            transition: "all 0.35s ease"
+                        }
                     }}
                     onLoad={() => {
                     }}
                 />
-            </Link>
+            
 
-            <Typography variant = "p" width = {width}>
-                {video.title}
+            <Typography variant = "p" width = {width} sx = {{
+                color: 'text.primary'
+            }}>
+                {video.title.length >= 80 ? video.title.substring(0, 76) + " ...": video.title}
             </Typography>
         </Box>
+        </Link>
     );
 }
 

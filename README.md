@@ -1,18 +1,17 @@
 # Video App
 
+make mobile friendly
+find nicer fonts
+
 # app.js (essentially just banner and logo and search, with shit at the bottom)
-    # banner and logo and search
-    # any of the below
+    # figure out why search is dumb.
+
+    # add footer with link to at least github
 
 # landing.js (our preselected 4 rows)
-    # beginning: just get all the shit from terrence_shi
-        # last 4 are sciencee
-        # second to last 4 are history, etc
+    # figure out sliding shit
 
-    # row.js (takes in 4+ video ids)
-    # thumbnail.js (performs a get function on video url and turns that into an image, maybe has to do another get, w/e)
-        # maybe has independent loading? easier to handle for take home...
-        # at best, the whole row has a loading thing
+    # give thumbnail loading function
 
 # video.js (takes in video id)
     # TRY iframe just to be sure, but probably will have to do something cool
@@ -26,12 +25,9 @@
         # comment.js (take user and content as param)
 
 # upload.js
-    # big white box that tries to not look like a text box
-    # title text box
-    # description text box
+    # optional: make url box the way you envisioned it
 
 # list.js
-    # takes in list as param. if list length is 0, gets user and maps
 
 --------------
 

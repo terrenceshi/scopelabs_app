@@ -17,10 +17,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import logo from "./assets/FULL_LOGO_COLOR.png"
 
-import Video from "./pages/Video.js";
 import Landing from "./pages/Landing.js";
 import Upload from "./pages/Upload.js";
+import MyVideos from "./pages/MyVideos.js";
+
 import MuiImg from "./components/MuiImg.js";
+import Video from "./pages/Video.js";
 
 import * as React from 'react';
 
@@ -29,13 +31,14 @@ function App() {
 
   return (
     <Box sx = {{
-      px: 4
+      px: 5,
+      pt: 2
     }}>
       <Box sx = {{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        pb: 2
+        pb: 3
       }}>
         <Link to="/">
           <MuiImg 
@@ -87,6 +90,7 @@ function App() {
         <Route path="/" element={<Landing/>} />
         <Route path="/videos/:id" element={<Video/>} />
         <Route path="/upload" element={<Upload/>} />
+        <Route path="/myvideos" element={<MyVideos/>} />
       </Routes>
 
     </Box>

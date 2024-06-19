@@ -21,7 +21,7 @@ const Row = ({ title, videos }) => {
                 gap: 3
             }}>
                 {videos.map((video, vIdx) => (
-                    <Thumbnail id = {vIdx} video = {video} />
+                    <Thumbnail key = {vIdx} video = {video} />
                 ))}
             </Box>
         </Box>

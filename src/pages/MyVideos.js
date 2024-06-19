@@ -1,19 +1,15 @@
 import { 
-    Typography,
     Box
 } from '@mui/material';
 
-import Row from "../components/Row.js";
-
 import{ useEffect, useState } from 'react';
 import axios from 'axios';
+
+import VideoResult from "../components/VideoResult.js";
   
 const Landing = () =>  {
     const [data, setData] = useState([]);
     const [loaded, setLoaded] = useState(false);
-
-    var historyLst = [data[data.length - 13]];
-    var historyLst = historyLst.concat(data.slice(data.length - 11, data.length - 6))
 
     useEffect(() => {
         var url = 'https://take-home-assessment-423502.uc.r.appspot.com/api/videos?user_id=terrence_shi';
@@ -42,25 +38,12 @@ const Landing = () =>  {
                 <Box sx = {{
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: 4
+                    gap: 4,
+                    alignItems: 'center'
                 }}>
-                    <Row 
-                        title = {"Science" }
-                        videos = {data.slice(-6)}
-                    />
-                    <Row 
-                        title = {"History" }
-                        videos = {historyLst}
-                    />
-                    <Row 
-                        title = {"English" }
-                        videos = {data.slice(data.length - 19, data.length - 13)}
-                    />
-
-<Row 
-                        title = {"Math" }
-                        videos = {data.slice(data.length - 25, data.length - 19)}
-                    />
+                    {data.map((video, vIdx) => (
+                        <VideoResult video = {video} key = {vIdx}/>
+                    ))}
                 </Box>
                 :
                 <div>
