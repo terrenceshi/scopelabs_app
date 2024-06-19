@@ -9,7 +9,7 @@ import Thumbnail from "./Thumbnail.js";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
-import{ useState } from 'react';
+import{ useState, useEffect } from 'react';
   
 const Row = ({ title, videos, windowDimensions, screenSize }) => {
     const [sliderX, setSliderX] = useState(0);
@@ -29,12 +29,18 @@ const Row = ({ title, videos, windowDimensions, screenSize }) => {
 
     var numChunks = Math.ceil(rowWidth / width)
 
+    useEffect(() => {
+        window.addEventListener('resize', () => {setSliderX(0)});
+        return () => window.removeEventListener('resize', () => {setSliderX(0)});
+    }, []);
+
     return (
         <Box sx = {{
             display: 'flex',
             flexDirection: 'column',
             width: '100%',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            gap: 0.5
         }}>
             <Typography variant="h4" gutterBottom >
                 {title}
@@ -104,7 +110,7 @@ const Row = ({ title, videos, windowDimensions, screenSize }) => {
                     transition: "transform 0.75s"
                 }}>
                     {videos.map((video, vIdx) => (
-                        <Thumbnail key = {vIdx} video = {video} />
+                        <Thumbnail key = {vIdx} video = {video} screenSize = {screenSize}/>
                     ))}
                 </Box>
             </Box>

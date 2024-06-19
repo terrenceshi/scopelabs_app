@@ -13,7 +13,8 @@ import {
   MenuItem,
   Typography,
   Dialog,
-  CssBaseline
+  CssBaseline,
+  Skeleton
 } from '@mui/material';
 
 import { ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
@@ -57,6 +58,8 @@ function App() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
   const [ screenSize, setScreenSize ] = useState('md');
 
+  const [loaded, setLoaded] = useState(false);
+
   const theme = useTheme();
 
   function handleResize() {
@@ -87,7 +90,7 @@ function App() {
       <CssBaseline />
       <Box sx = {{
         pt: 2,
-        pb: 10
+        pb: 12
       }}>
         <Box sx = {{
           px: '4vw',
@@ -101,11 +104,21 @@ function App() {
               src={logo} 
               alt = {'Learnwell'} 
               sx = {{
+                width: {xs: 200, sm: 'auto'},
+                display: loaded ? 'block' : 'none'
               }}
-              onLoad={() => {
+              onLoad={() => setLoaded(true)}
+            />
+            <Skeleton 
+              variant="rectangular" 
+              height = {'auto'}
+              sx = {{
+                  aspectRatio: '315/87',
+                  width: {xs: 200, sm: 315},
+                  display: loaded ? 'none' : 'block'
               }}
             />
-            </Link>
+          </Link>
 
             {/*
             <Input placeholder="Search" sx = {{
@@ -197,7 +210,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Landing windowDimensions = {windowDimensions} screenSize = {screenSize}/>} />
-          <Route path="/videos/:id" element={<Video account = {account}/>} />
+          <Route path="/videos/:id" element={<Video account = {account} screenSize = {screenSize}/>} />
           <Route path="/upload" element={<Upload account = {account}/>} />
           <Route path="/myvideos" element={<MyVideos account = {account}/>} />
         </Routes>

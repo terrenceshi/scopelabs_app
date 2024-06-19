@@ -1,5 +1,5 @@
 import { 
-    Typography,
+    CircularProgress,
     Box
 } from '@mui/material';
 
@@ -72,9 +72,15 @@ const Landing = ({windowDimensions, screenSize}) =>  {
                     />
                 </Box>
                 :
-                <div>
-                    Loading
-                </div>
+                <Box sx = {{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    pt: 6
+                }}>
+                    <CircularProgress size="5rem" sx = {{
+                        animationDuration: '8s'
+                    }}/>
+                </Box>
             }
         </Box>
     );

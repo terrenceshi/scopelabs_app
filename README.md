@@ -1,59 +1,52 @@
 # Video App
 
-make mobile friendly
-find nicer fonts
-try dark mode
+## An overview of your solution and its features.
 
-# app.js (essentially just banner and logo and search, with shit at the bottom)
-    # figure out why search is dumb.
+My solution takes heavy inspiration from both YouTube and Netflix.
 
-    # add footer with link to at least github
+For my homepage, I looked at many video sites and concluded that the best way to display videos would be by category, as education is a broad umbrella that can narrow down many choices by simply choosing a subject. Thus, I chose to take some inspiration with Netflix and how they display media via genre.
 
-# landing.js (our preselected 4 rows)
-    # give thumbnail loading function
+The video playing pages take in the video id as a parameter in the URL. This allows people to access videos when they have the video id. The page itself is very much like YouTube's, as it is a compact and minimalist way to display video, description, and comments.
 
-# video.js (takes in video id)
-    # let shit load
+Every video page will get all comments. The user can add their own comment, which will also reload the comments to reflect the change.
 
-# upload.js
-    # optional: make url box the way you envisioned it
+The top right profile picture icon has 3 features. Let's first talk about uploading. Uploading is straightforward enough. The user more or less fills out a form to make the proper POST call to upload a video.
 
-# list.js
+Let's also talk about logout. Of course, our users will need be able to log into and out of their accounts. Clicking logout brings up a dialog to sign in as a new user. For this demo, only the user field matters.
 
---------------
+Lastly, we can use the API to get all videos under the currently signed in user. 
 
-- Make homepage
-    - title, logo, and search will be on every page
+Of course, all images and API dependent data have skeletons and loading symbols that are displayed before they are loaded. Additionally, every page is friendly to all different sizes of windows, including mobile.
 
-    - page on load just gets preselected Science, History, Math, and English playlists
-    
-    - Can make each row a component
-        - each row just gets like a bunch of random video ids as input
+## Instructions on how to build and run the application on the web.
 
-        - initially, each row will just be a preset of like 4 videos next to each other
-            - if more time, have an arrow key mechanism
+For the web, you can access the deployed demo on ______.
 
-        - each video thumbnail is a component
-            - input is video_id
-            - get information from get function
+If you want to run this project locally, you will need node.js installed.
 
-        - clicking takes you to new page
+Afterwards, navigate to the root directory of this project and run the following:
 
-- Make video player
-    - just needs video_id as input I guess
+```
+npm install
+npm start
+```
 
-    - maybe iframe, if iframe is too bad, then probably look into making a custom player
-    
-    - comments will be loaded below (get function on loading of page or when scroll direction is down enough)
+If the API server is up, you should be able to use the app!
 
-    - each comment will be a component 
+## Screenshots of the platform.
 
-- Upload a video
-    - big white box with graphics and text in it (ask for url)
-    - need to look up how uploading files goes
+![Alt text](/pics/1.png?raw=true "Home Page" )
 
-    - text boxes for title and description
+![Alt text](/pics/2.png?raw=true "Video Page")
 
-- search / user page
-    - takes in buncha video ids as input
-    - need component for video listing
+![Alt text](/pics/3.png?raw=true "Comments")
+
+![Alt text](/pics/4.png?raw=true "Upload Page")
+
+![Alt text](/pics/5.png?raw=true "User Videos Page")
+
+![Alt text](/pics/6.png?raw=true "Log in modal")
+
+
+
+## Any other necessary information to test the application.

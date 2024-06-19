@@ -1,5 +1,5 @@
 import { 
-    Box, Typography, Divider
+    Box, Typography, CircularProgress
 } from '@mui/material';
 
 import{ useEffect, useState } from 'react';
@@ -10,6 +10,8 @@ import VideoResult from "../components/VideoResult.js";
 const MyVideos = ({account}) =>  {
     const [data, setData] = useState([]);
     const [loaded, setLoaded] = useState(false);
+
+    const width = {xs: 400, sm: 580, md: 860, lg: 1080};
 
     useEffect(() => {
         var url = 'https://take-home-assessment-423502.uc.r.appspot.com/api/videos?user_id=' + account;
@@ -42,7 +44,7 @@ const MyVideos = ({account}) =>  {
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 4,
-                    width: 1080
+                    width: width
                 }}>
                     {data.length > 0 ? data.map((video, vIdx) => (
                         <VideoResult video = {video} key = {vIdx}/>
@@ -56,9 +58,15 @@ const MyVideos = ({account}) =>  {
                     }
                 </Box>
                 :
-                <div>
-                    Loading
-                </div>
+                <Box sx = {{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    pt: 6
+                }}>
+                    <CircularProgress size="5rem" sx = {{
+                        animationDuration: '8s'
+                    }}/>
+                </Box>
             }
         </Box>
     );

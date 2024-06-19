@@ -1,15 +1,13 @@
 import { 
-    Typography, Box, TextField, Button
+    Box, TextField, Button
 } from '@mui/material';
-
-import UploadIcon from '@mui/icons-material/Upload';
 
 import { useState } from 'react';
 
 import axios from 'axios';
 
 const Upload = ({account}) => {
-    const width = 750;
+    const width = {xs: 320, sm: 500,md: 750,lg: 750};
 
     const [url, setUrl] = useState("");
     const [title, setTitle] = useState("");
@@ -44,7 +42,7 @@ const Upload = ({account}) => {
             <TextField
                 label="Enter Url"
                 sx = {{
-                    width: {width}
+                    width: width
                 }}
                 onChange={(event) => {
                     setUrl(event.target.value)
@@ -54,7 +52,7 @@ const Upload = ({account}) => {
             <TextField
                 label="Title"
                 sx = {{
-                    width: {width}
+                    width: width
                 }}
                 onChange={(event) => {
                     setTitle(event.target.value)
@@ -66,7 +64,7 @@ const Upload = ({account}) => {
                 multiline
                 rows={6}
                 sx = {{
-                    width: {width},
+                    width: width,
                 }}
                 onChange={(event) => {
                     setDesc(event.target.value)
@@ -74,7 +72,7 @@ const Upload = ({account}) => {
             />
 
             <Box sx = {{
-                width: {width},
+                width: width,
                 pt: 1,
                 display: 'flex',
                 justifyContent: 'flex-end'

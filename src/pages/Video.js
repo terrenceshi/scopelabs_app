@@ -1,7 +1,7 @@
 import { useParams }from "react-router-dom";
 
 import { 
-  Box, Typography, IconButton, TextField, Divider
+  Box, Typography, IconButton, TextField, Divider, CircularProgress
 } from '@mui/material';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -13,7 +13,7 @@ import axios from 'axios';
 
 import Comment from "../components/Comment.js";
   
-  function Video({account}) {
+  function Video({account, screenSize}) {
     const { id } = useParams();
 
     const [data, setData] = useState([]);
@@ -23,6 +23,8 @@ import Comment from "../components/Comment.js";
     const [commentsLoaded, setCommentsLoaded] = useState(false);
 
     const [input, setInput] = useState("");
+
+    const width = {xs: 360, sm: 480, md: 720, lg: 1080}
 
     function getComments(){
       var url2 = 'https://take-home-assessment-423502.uc.r.appspot.com/api/videos/comments?video_id=' + id;
@@ -101,7 +103,11 @@ import Comment from "../components/Comment.js";
                     playing = {true}
                     url= {data.video_url}
                     controls = {true}
-                    width = {1080}
+                    width = {
+                      screenSize === 'xl' || screenSize === 'lg' ? 1080 : 
+                      screenSize === 'md' ? 720 :
+                      screenSize === 'sm' ? 480 : 360
+                    }
                     height = {'auto'}
                     style = {{'aspectRatio': '16/9'}}
                   />
@@ -112,7 +118,7 @@ import Comment from "../components/Comment.js";
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 2,
-                    width: 1080,
+                    width: width,
                     pt: 2
                 }}>
                   <Typography variant = "h5">
@@ -171,7 +177,7 @@ import Comment from "../components/Comment.js";
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 3,
-                    width: 1080
+                    width: width
                   }}>
                       {comments.map((comment, cIdx) => (
                         <Comment comment = {comment} key = {cIdx} />
@@ -179,16 +185,26 @@ import Comment from "../components/Comment.js";
                   </Box>
                   :
                   <Box sx = {{
-                    pb: 10
+                    display: 'flex',
+                    justifyContent: 'center',
+                    pt: 6
                   }}>
-                    Loading
+                    <CircularProgress size="5rem" sx = {{
+                        animationDuration: '8s'
+                    }}/>
                   </Box>
                 }
               </Box>
               :
-              <div>
-                  Loading
-              </div>
+              <Box sx = {{
+                display: 'flex',
+                justifyContent: 'center',
+                pt: 6
+              }}>
+                <CircularProgress size="5rem" sx = {{
+                    animationDuration: '8s'
+                }}/>
+              </Box>
           }
       </Box>
     );
