@@ -1,5 +1,5 @@
 import { 
-    Box, TextField, Button
+    Box, TextField, Button, Typography
 } from '@mui/material';
 
 import { useState } from 'react';
@@ -13,6 +13,8 @@ const Upload = ({account}) => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
 
+    const [uploaded, setUploaded] = useState(false);
+
     function handleClick(){
         var postUrl = 'https://take-home-assessment-423502.uc.r.appspot.com/api/videos';
 
@@ -24,7 +26,10 @@ const Upload = ({account}) => {
         })
         .then(function (response) {
             // handle success
-            console.log(response);
+            setUrl("");
+            setTitle("");
+            setDesc("");
+            setUploaded(true);
         })
         .catch(function (error) {
             // handle error
@@ -41,6 +46,7 @@ const Upload = ({account}) => {
         }}>
             <TextField
                 label="Enter Url"
+                value = {url}
                 sx = {{
                     width: width
                 }}
@@ -51,6 +57,7 @@ const Upload = ({account}) => {
 
             <TextField
                 label="Title"
+                value = {title}
                 sx = {{
                     width: width
                 }}
@@ -62,6 +69,7 @@ const Upload = ({account}) => {
             <TextField
                 label="Description"
                 multiline
+                value = {desc}
                 rows={6}
                 sx = {{
                     width: width,
@@ -75,8 +83,15 @@ const Upload = ({account}) => {
                 width: width,
                 pt: 1,
                 display: 'flex',
-                justifyContent: 'flex-end'
+                justifyContent: 'space-between',
+                alignItems: 'center'
             }}>
+                <Typography variant = "body" sx = {{
+                    opacity: uploaded ? 1 : 0,
+                    transition: '0.35s'
+                }}>
+                    Video Uploaded!
+                </Typography>
                 <Button 
                     variant="contained" 
                     onClick = {handleClick}
