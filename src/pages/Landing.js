@@ -8,7 +8,7 @@ import Row from "../components/Row.js";
 import{ useEffect, useState } from 'react';
 import axios from 'axios';
   
-const Landing = () =>  {
+const Landing = ({windowDimensions, screenSize}) =>  {
     const [data, setData] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
@@ -37,7 +37,7 @@ const Landing = () =>  {
 
     return (
         <Box sx = {{
-            px: 5
+            px: '4vw'
         }}>
             { loaded ?
                 <Box sx = {{
@@ -48,19 +48,27 @@ const Landing = () =>  {
                     <Row 
                         title = {"Science" }
                         videos = {data.slice(-6)}
+                        windowDimensions = {windowDimensions}
+                        screenSize = {screenSize}
                     />
                     <Row 
                         title = {"History" }
                         videos = {historyLst}
+                        windowDimensions = {windowDimensions}
+                        screenSize = {screenSize}
                     />
                     <Row 
                         title = {"English" }
                         videos = {data.slice(data.length - 19, data.length - 13)}
+                        windowDimensions = {windowDimensions}
+                        screenSize = {screenSize}
                     />
 
-<Row 
+                    <Row 
                         title = {"Math" }
                         videos = {data.slice(data.length - 25, data.length - 19)}
+                        windowDimensions = {windowDimensions}
+                        screenSize = {screenSize}
                     />
                 </Box>
                 :

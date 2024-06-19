@@ -1,5 +1,5 @@
 import { 
-    Box, Typography
+    Box, Typography, Divider
 } from '@mui/material';
 
 import{ useEffect, useState } from 'react';
@@ -33,13 +33,16 @@ const MyVideos = ({account}) =>  {
 
     return (
         <Box sx = {{
+            display: 'flex',
+            justifyContent: 'center'
         }}>
+            
             { loaded ?
                 <Box sx = {{
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 4,
-                    alignItems: 'center'
+                    width: 1080
                 }}>
                     {data.length > 0 ? data.map((video, vIdx) => (
                         <VideoResult video = {video} key = {vIdx}/>

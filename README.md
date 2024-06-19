@@ -10,8 +10,6 @@ try dark mode
     # add footer with link to at least github
 
 # landing.js (our preselected 4 rows)
-    # figure out sliding shit
-
     # give thumbnail loading function
 
 # video.js (takes in video id)

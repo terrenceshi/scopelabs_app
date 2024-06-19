@@ -13,8 +13,6 @@ const VideoResult = ({ video }) => {
     id = id.split("&")[0];
     var url = "https://img.youtube.com/vi/"+ id + "/mqdefault.jpg";
 
-    const width = 300;
-
     return (
         <Link to = {'/videos/'+video.id} style = {{textDecoration: "none"}}>
             <Box sx = {{
@@ -49,7 +47,6 @@ const VideoResult = ({ video }) => {
                     </Typography>
 
                     <Typography variant = "body" sx = {{
-                        width: 700,
                         color: 'text.secondary'
                     }}>
                         {video.description.length >= 150 ? video.description.substring(0,147) + " ...": video.description}

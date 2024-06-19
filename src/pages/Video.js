@@ -159,7 +159,8 @@ import Comment from "../components/Comment.js";
                       onClick = {handleClick}
                     >
                       <SendIcon sx = {{
-                          fontSize: 36
+                          fontSize: 36,
+                          color: '#47b99b'
                       }}/>
                     </IconButton>
                   </Box>

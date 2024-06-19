@@ -13,7 +13,7 @@ const Thumbnail = ({ video }) => {
     id = id.split("&")[0];
     var url = "https://img.youtube.com/vi/"+ id + "/mqdefault.jpg";
 
-    const width = 300;
+    const width = {xs: 200, md: 240, lg: 300};
 
     return (
         <Link to = {'/videos/'+video.id} style = {{textDecoration: "none"}}>
@@ -23,19 +23,19 @@ const Thumbnail = ({ video }) => {
                 gap: 1
             }}>
                 
-                    <MuiImg 
-                        src={url} 
-                        alt = {video.title} 
-                        sx = {{
-                            width: {width},
-                            "&:hover": {
-                                filter: "brightness(50%)",
-                                transition: "all 0.35s ease"
-                            }
-                        }}
-                        onLoad={() => {
-                        }}
-                    />
+                <MuiImg 
+                    src={url} 
+                    alt = {video.title} 
+                    sx = {{
+                        width: width,
+                        "&:hover": {
+                            filter: "brightness(50%)",
+                            transition: "all 0.35s ease"
+                        }
+                    }}
+                    onLoad={() => {
+                    }}
+                />
                 
 
                 <Typography variant = "p" width = {width} sx = {{
