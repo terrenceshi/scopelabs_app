@@ -20,9 +20,7 @@ Of course, all images and API dependent data have skeletons and loading symbols 
 
 ## Instructions on how to build and run the application on the web.
 
-For the web, you can access the deployed demo on ______.
-
-If you want to run this project locally, you will need node.js installed.
+You will need node.js installed.
 
 Afterwards, navigate to the root directory of this project and run the following:
 
@@ -47,6 +45,3 @@ If the API server is up, you should be able to use the app!
 
 ![Alt text](/pics/6.png?raw=true "Log in modal")
 
-
-
-## Any other necessary information to test the application.
