@@ -17,33 +17,33 @@ const Thumbnail = ({ video }) => {
 
     return (
         <Link to = {'/videos/'+video.id} style = {{textDecoration: "none"}}>
-        <Box sx = {{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 1
-        }}>
-            
-                <MuiImg 
-                    src={url} 
-                    alt = {video.title} 
-                    sx = {{
-                        width: {width},
-                        "&:hover": {
-                            filter: "brightness(50%)",
-                            transition: "all 0.35s ease"
-                        }
-                    }}
-                    onLoad={() => {
-                    }}
-                />
-            
-
-            <Typography variant = "p" width = {width} sx = {{
-                color: 'text.primary'
+            <Box sx = {{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1
             }}>
-                {video.title.length >= 80 ? video.title.substring(0, 76) + " ...": video.title}
-            </Typography>
-        </Box>
+                
+                    <MuiImg 
+                        src={url} 
+                        alt = {video.title} 
+                        sx = {{
+                            width: {width},
+                            "&:hover": {
+                                filter: "brightness(50%)",
+                                transition: "all 0.35s ease"
+                            }
+                        }}
+                        onLoad={() => {
+                        }}
+                    />
+                
+
+                <Typography variant = "p" width = {width} sx = {{
+                    color: 'text.primary'
+                }}>
+                    {video.title.length >= 80 ? video.title.substring(0, 76) + " ...": video.title}
+                </Typography>
+            </Box>
         </Link>
     );
 }

@@ -2,6 +2,7 @@
 
 make mobile friendly
 find nicer fonts
+try dark mode
 
 # app.js (essentially just banner and logo and search, with shit at the bottom)
     # figure out why search is dumb.
@@ -14,15 +15,7 @@ find nicer fonts
     # give thumbnail loading function
 
 # video.js (takes in video id)
-    # TRY iframe just to be sure, but probably will have to do something cool
-
-    # load comments either on page load or on scroll (if scroll, probably just give it to video.js)
-
-        # map list or whatever to a bunch of comments
-
-        # lil component to add a component
-
-        # comment.js (take user and content as param)
+    # let shit load
 
 # upload.js
     # optional: make url box the way you envisioned it

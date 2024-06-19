@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 import axios from 'axios';
 
-const Upload = () => {
+const Upload = ({account}) => {
     const width = 750;
 
     const [url, setUrl] = useState("");
@@ -16,14 +16,10 @@ const Upload = () => {
     const [desc, setDesc] = useState("");
 
     function handleClick(){
-        console.log(url);
-        console.log(title);
-        console.log(desc);
-
         var postUrl = 'https://take-home-assessment-423502.uc.r.appspot.com/api/videos';
 
         axios.post(postUrl, {
-            user_id: 'terrence_shi',
+            user_id: account,
             description: desc,
             video_url: url,
             title: title

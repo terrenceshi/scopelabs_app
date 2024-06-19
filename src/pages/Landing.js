@@ -37,6 +37,7 @@ const Landing = () =>  {
 
     return (
         <Box sx = {{
+            px: 5
         }}>
             { loaded ?
                 <Box sx = {{

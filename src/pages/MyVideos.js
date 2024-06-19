@@ -1,5 +1,5 @@
 import { 
-    Box
+    Box, Typography
 } from '@mui/material';
 
 import{ useEffect, useState } from 'react';
@@ -7,12 +7,12 @@ import axios from 'axios';
 
 import VideoResult from "../components/VideoResult.js";
   
-const Landing = () =>  {
+const MyVideos = ({account}) =>  {
     const [data, setData] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        var url = 'https://take-home-assessment-423502.uc.r.appspot.com/api/videos?user_id=terrence_shi';
+        var url = 'https://take-home-assessment-423502.uc.r.appspot.com/api/videos?user_id=' + account;
 
         axios.get(url)
         .then(function (response) {
@@ -41,9 +41,16 @@ const Landing = () =>  {
                     gap: 4,
                     alignItems: 'center'
                 }}>
-                    {data.map((video, vIdx) => (
+                    {data.length > 0 ? data.map((video, vIdx) => (
                         <VideoResult video = {video} key = {vIdx}/>
-                    ))}
+                    ))
+                    :
+
+                    <Typography variant = "h5">
+                        No videos uploaded. Upload one today!
+                    </Typography>
+                
+                    }
                 </Box>
                 :
                 <div>
@@ -54,5 +61,5 @@ const Landing = () =>  {
     );
 }
 
-export default Landing;
+export default MyVideos;
   
